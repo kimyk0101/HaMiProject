@@ -5,7 +5,7 @@ function Home() {
     const navigate = useNavigate();
 
     const handleTouch = () => {
-    navigate("/next");
+    navigate('/next');
 
     };
 
