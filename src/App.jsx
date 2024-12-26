@@ -1,17 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "/src/component/Home";
-import NextPage from "/src/component/NextPage";
+import MainScreen from "./component/MainScreen";
+import MenuScreen from "./component/MenuScreen";
 
-function App() {
+const App = () => {
   return (
-  <Router>
-  <Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/next" element={<NextPage />} />
-  </Routes>
-  </Router>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainScreen />} />
+        <Route path="/menu" element={<MenuScreen />} />
+      </Routes>
+    </Router>
   );
 }
-
 export default App;
