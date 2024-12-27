@@ -1,0 +1,62 @@
+{
+    "menuCategory": [
+    { "id": "A", "title": "Set"},
+    { "id": "B", "title": "Pork Cutlet"},
+    { "id": "C", "title": "Noodles/Rice"},
+    { "id": "D", "title": "Side"}
+  ],
+"setList": [
+    { "id": 1, "name": "Children's Set", "price": 9000, "isCart": 0},
+    { "id": 2, "name": "Nostalgic Pork Cutlet Set", "price": 13000, "isCart": 0},
+    { "id": 3, "name": "Jumbo Pork Cutlet Set", "price": 13000, "isCart": 0},
+    { "id": 4, "name": "Cheese Pork Cutlet Set", "price": 13000, "isCart": 0},
+    { "id": 5, "name": "Sirloin Pork Cutlet Set", "price": 13000, "isCart": 0},
+    { "id": 6, "name": "Fillet Pork Cutlet Set", "price": 13000, "isCart": 0},
+    { "id": 7, "name": "Fish Cutlet Set", "price": 13000, "isCart": 0},
+    { "id": 8, "name": "Rosé Pork Cutlet Set", "price": 13000, "isCart": 0}
+  ],
+"cutletList" : [
+    { "id": 101, "name": "Nostalgic Pork Cutlet", "price": 11000, "isCart": 0},
+    { "id": 102, "name": "Jumbo Pork Cutlet", "price": 15000, "isCart": 0},
+    { "id": 103, "name": "Cheese Pork Cutlet", "price": 12000, "isCart": 0},
+    { "id": 104, "name": "Chicken Cutlet", "price": 11000, "isCart": 0},
+    { "id": 105, "name": "Sirloin Pork Cutlet", "price": 11000, "isCart": 0},
+    { "id": 106, "name": "Fillet Pork Cutlet", "price": 12000, "isCart": 0},
+    { "id": 107, "name": "Fish Cutlet", "price": 11000, "isCart": 0},
+    { "id": 108, "name": "Fiery Pork Cutlet", "price": 12000, "isCart": 0},
+    { "id": 109, "name": "Rosé Pork Cutlet", "price": 13000, "isCart": 0},
+    { "id": 110, "name": "Hamburger Steak", "price": 13000, "isCart": 0}
+  ],
+"noodleList" : [
+    { "id": 201, "name": "Curry Udon", "price": 8000, "isCart": 0},
+    { "id": 202, "name": "Katsuo Udon", "price": 8000, "isCart": 0},
+    { "id": 203, "name": "Shrimp Udon", "price": 8000, "isCart": 0},
+    { "id": 204, "name": "Aburaage Udon", "price": 8000, "isCart": 0},
+    { "id": 205, "name": "Kimchi Udon", "price": 8000, "isCart": 0},
+    { "id": 206, "name": "(Cold) Soba", "price": 7000, "isCart": 0},
+    { "id": 207, "name": "(Warm) Udon", "price": 7000, "isCart": 0},
+    { "id": 208, "name": "Omurice", "price": 10000, "isCart": 0},
+    { "id": 209, "name": "Kimchi Fried Rice", "price": 9000, "isCart": 0},
+    { "id": 210, "name": "Shrimp Fried Rice", "price": 9000, "isCart": 0}
+  ],
+"sideList" :[
+    { "id": 301, "name": "Cola", "price": 2000, "isCart": 0},
+    { "id": 302, "name": "Sprite", "price": 2000, "isCart": 0},
+    { "id": 303, "name": "Additional Rice", "price": 1000, "isCart": 0},
+    { "id": 304, "name": "Soup", "price": 1000, "isCart": 0},
+    { "id": 305, "name": "Miso Soup", "price": 1000, "isCart": 0},
+    { "id": 306, "name": "Shrimp Tempura", "price": 3000, "isCart": 0},
+    { "id": 307, "name": "Croquette", "price": 2500, "isCart": 0},
+    { "id": 308, "name": "Sausage", "price": 2000, "isCart": 0}
+  ],
+  "translations": {
+    "cart": "cart",
+    "totalAmount": "totalAmount : ",
+    "totalPrice": "totalPrice : ",
+    "delete": "delete",
+    "deleteAll": "deleteAll",
+    "payment": "payment",
+    "won": "won",
+    "items": ""
+  }
+}

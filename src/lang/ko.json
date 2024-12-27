@@ -1,0 +1,62 @@
+{
+    "menuCategory": [
+    { "id": "A", "title": "세트"},
+    { "id": "B", "title": "돈카츠"},
+    { "id": "C", "title": "면/밥"},
+    { "id": "D", "title": "사이드"}
+  ],
+"setList": [
+    { "id": 1, "name": "어린이 세트", "price": 9000, "isCart": 0},
+    { "id": 2, "name": "옛날 돈카츠 세트", "price": 13000, "isCart": 0},
+    { "id": 3, "name": "왕 돈카츠 세트", "price": 13000, "isCart": 0},
+    { "id": 4, "name": "치즈 돈카츠 세트", "price": 13000, "isCart": 0},
+    { "id": 5, "name": "등심카츠 세트", "price": 13000, "isCart": 0},
+    { "id": 6, "name": "안심카츠 세트", "price": 13000, "isCart": 0},
+    { "id": 7, "name": "생선카츠 세트", "price": 13000, "isCart": 0},
+    { "id": 8, "name": "로제카츠 세트", "price": 13000, "isCart": 0}
+  ],
+"cutletList" : [
+    { "id": 101, "name": "옛날 돈카츠", "price": 11000, "isCart": 0},
+    { "id": 102, "name": "왕 돈카츠", "price": 15000, "isCart": 0},
+    { "id": 103, "name": "치즈 돈카츠", "price": 12000, "isCart": 0},
+    { "id": 104, "name": "치킨카츠", "price": 11000, "isCart": 0},
+    { "id": 105, "name": "등심카츠", "price": 11000, "isCart": 0},
+    { "id": 106, "name": "안심카츠", "price": 12000, "isCart": 0},
+    { "id": 107, "name": "생선카츠", "price": 11000, "isCart": 0},
+    { "id": 108, "name": "매운 돈카츠", "price": 12000, "isCart": 0},
+    { "id": 109, "name": "로제 돈카츠", "price": 13000, "isCart": 0},
+    { "id": 110, "name": "함박 스테이크", "price": 13000, "isCart": 0}
+  ],
+"noodleList" : [
+    { "id": 201, "name": "카레우동", "price": 8000, "isCart": 0},
+    { "id": 202, "name": "가쓰오우동", "price": 8000, "isCart": 0},
+    { "id": 203, "name": "새우우동", "price": 8000, "isCart": 0},
+    { "id": 204, "name": "유부우동", "price": 8000, "isCart": 0},
+    { "id": 205, "name": "김치우동", "price": 8000, "isCart": 0},
+    { "id": 206, "name": "냉소바", "price": 7000, "isCart": 0},
+    { "id": 207, "name": "온소바", "price": 7000, "isCart": 0},
+    { "id": 208, "name": "오므라이스", "price": 10000, "isCart": 0},
+    { "id": 209, "name": "김치볶음밥", "price": 9000, "isCart": 0},
+    { "id": 210, "name": "새우볶음밥", "price": 9000, "isCart": 0}
+  ],
+"sideList" :[
+    { "id": 301, "name": "콜라", "price": 2000, "isCart": 0},
+    { "id": 302, "name": "사이다", "price": 2000, "isCart": 0},
+    { "id": 303, "name": "공깃밥 추가", "price": 1000, "isCart": 0},
+    { "id": 304, "name": "스프", "price": 1000, "isCart": 0},
+    { "id": 305, "name": "된장국", "price": 1000, "isCart": 0},
+    { "id": 306, "name": "새우튀김", "price": 3000, "isCart": 0},
+    { "id": 307, "name": "고로케", "price": 2500, "isCart": 0},
+    { "id": 308, "name": "소세지", "price": 2000, "isCart": 0}
+  ],
+  "translations": {
+    "cart": "장바구니",
+    "totalAmount": "주문수량 : ",
+    "totalPrice": "총 금액 : ",
+    "delete": "삭제",
+    "deleteAll": "전체삭제",
+    "payment": "결제",
+    "won": "원",
+    "items": "개"
+  }
+}
