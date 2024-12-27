@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import MainScreen from "./components/MainScreen";
-import Header from "./components/Header";
-import MenuCategory from "./components/MenuCategory";
-import MenuList from "./components/MenuList";
-import Cart from "./components/Cart";
+import MainScreen from "/src/components/MainScreen";
+import Header from "/src/components/Header";
+import MenuCategory from "/src/components/MenuCategory";
+import MenuList from "/src/components/MenuList";
+import Cart from "/src/components/Cart";
 
 function App() {
   const [categoryData, setCategoryData] = useState([]);
