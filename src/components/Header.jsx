@@ -3,16 +3,20 @@ import styled from "styled-components";
 
 /* styled-components */
 const Wrapper = styled.div`
-  padding: 1em;
-  background: rgba(122, 9, 145, 0.25);
-  // width: 100%;
   width: 1500px;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  background: #8b4513;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Title = styled.h1`
-  color: yellow;
+  color: white;
   text-align: center;
-  // width: 100%;
-  width: 1500px;
+  font-size: 40px;
+  font-weight: bold;
 `;
 
 /* Header-components */
