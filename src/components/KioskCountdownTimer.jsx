@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import PropTypes from "prop-types";
 
 const TimerContainer = styled.div`

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import PaymentScreen from "/src/components/PaymentScreen";
+
 /* styled-components */
 const Wrapper = styled.div`
   // border: 1px solid black;
@@ -137,6 +139,11 @@ function Cart({
     allCartZero();
   };
 
+  const [isPaymentScreenVisible, setIsPaymentScreenVisible] = useState(false);
+  const handlePaymentButtonClick = () => {
+    setIsPaymentScreenVisible(true);
+  };
+
   return (
     <Wrapper>
       <StyledH1>장 바 구 니</StyledH1>
@@ -164,8 +171,16 @@ function Cart({
       <StyledH1>총 금액 : {totalPrice}원</StyledH1>
       <Style02>
         <Button1 onClick={() => makeAllZero()}>전체삭제</Button1>
-        <Button2>결제</Button2>
+        <Button2 onClick={handlePaymentButtonClick}>결제</Button2>
       </Style02>
+      {isPaymentScreenVisible ? (
+        <PaymentScreen
+          onClose={() => setIsPaymentScreenVisible(false)}
+          totalAmount={totalAmount}
+          totalPrice={totalPrice}
+          items={items}
+        />
+      ) : null}
     </Wrapper>
   );
 }

@@ -4,7 +4,7 @@ import OrderHistory from "/src/components/OrderHistory";
 import PaymentSuccess from "/src/components/PaymentSuccess";
 import KioskCountdownTimer from "/src/components/KioskCountdownTimer";
 import styled from "styled-components";
-import { TailSpin } from "react-loader-spinner";
+// import { TailSpin } from "react-loader-spinner";
 
 const ModalOverlay = styled.div`
   position: fixed;
