@@ -167,36 +167,37 @@ function MainScreen() {
       </div>
       {/* QR 코드 */}
       <div
-      style={{
-        position: "absolute",
-        bottom: "20px",
-        left: "20px",
-        backgroundColor: "rgba(255, 255, 255, 0.8)",
-        padding: "10px",
-        borderRadius: "5px",
-      }}
-      > 
-      <div style= {{position: "relative", width: "150px", height: "150px"}}>
-      <QRCodeCanvas
-        value="http://example.com" // QR 코드로 인코딩할 URL
-        size={150}
-        bgColor="#ffffff"
-        fgColor="#000000"
-        level="Q" 
-        />
-    <img
-    src="/image.png"  // 삽입할 이미지의 경로
-    alt="QR LOGO"
-    style={{
-      position: "absolute",
-      top: "50%",
-      left:"50%",
-      transform: "translate(-50%, -50%)",
-      width: "50px",
-      height: "50px",
-    }} />
-    </div>
-    </div>
+        style={{
+          position: "absolute",
+          bottom: "20px",
+          left: "20px",
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
+          padding: "10px",
+          borderRadius: "5px",
+        }}
+      >
+        <div style={{ position: "relative", width: "150px", height: "150px" }}>
+          <QRCodeCanvas
+            value="http://localhost:5173/menu" // QR 코드로 인코딩할 URL
+            size={150}
+            bgColor="#ffffff"
+            fgColor="#000000"
+            level="Q"
+          />
+          <img
+            src="/image.png" // 삽입할 이미지의 경로
+            alt="QR LOGO"
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "50px",
+              height: "50px",
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 }

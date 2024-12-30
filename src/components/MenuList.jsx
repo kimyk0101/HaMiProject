@@ -4,9 +4,9 @@ import styled from "styled-components";
 /* styled-components */
 const Wrap = styled.div`
   // border: 1px solid yellow;
-  width: 1100px;
-  height: 540px;
-  background-color: #8b4513;
+  width: 1360px;
+  height: 810px;
+  background-color: #f47e28;
   margin: 0;
   padding: 10px 0px 0px 0px;
   display: flex;
@@ -16,13 +16,13 @@ const Wrap = styled.div`
   overflow: auto;
 `;
 const MenuBox = styled.span`
-  width: 250px;
-  height: 230px;
-  margin: 20px 9px;
+  width: 310px;
+  height: 360px;
+  margin: 10px 5px 8px 18px;
   padding: 0;
-  border: 1px solid yellow;
+  border: 1px solid #f2c1ae;
   border-radius: 10px;
-  background-color: #c19a6b;
+  background-color: #fdf6d6;
   font-size: 5px;
   font-color: black;
   display: flex;
@@ -41,7 +41,7 @@ const Img = styled.img`
   border-radius: 10px;
 `;
 const ItemInfo = styled.div`
-  font-size: 18px;
+  font-size: 30px;
   font-weight: bold;
 `;
 
@@ -75,9 +75,8 @@ function MenuList({
       {filteredData.map((item) => (
         <MenuBox key={item.id} onClick={() => toCart(item.id)}>
           <Img src={`/src/images/${item.id}.jpeg`} alt={item.name}></Img>
-          <ItemInfo>
-            {item.name} - {item.price}원
-          </ItemInfo>
+          <ItemInfo>{item.name}</ItemInfo>
+          <ItemInfo>- {item.price}원</ItemInfo>
         </MenuBox>
       ))}
     </Wrap>

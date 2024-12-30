@@ -7,22 +7,22 @@ import PaymentScreen from "/src/components/PaymentScreen";
 /* styled-components */
 const Wrapper = styled.div`
   // border: 1px solid black;
-  width: 401px;
-  height: 618px;
+  width: 560px;
+  height: 740px;
   position: absolute;
-  margin-left: 1099px;
-  margin-top: -620px;
+  margin-left: 1360px;
+  margin-top: -920px;
   background-color: white;
 `;
 const StyledH1 = styled.h2`
   // border: 1px solid black;
-  height: 70px;
+  height: 100px;
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #706555;
+  background-color: #4c4b4e;
   color: white;
-  font-size: 30px;
+  font-size: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,19 +31,22 @@ const StyledUl = styled.ul`
   // border: 1px solid blue;
   padding: 10px 0 0 20px;
   margin: 0;
-  height: 335px;
-  width: 381px;
+  height: 510px;
+  width: 530px;
   overflow: auto;
   list-style: none;
+}
 `;
 const ButtonAmountControl = styled.button`
   border: 1px solid white;
-  background-color: #8b4513;
+  background-color: #b44b1e;
+  margin-left: 10px;
+  margin-right: 10px;
   color: white;
   border-radius: 4px;
   padding: 7px 14px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 20px;
   font-weight: bold;
 `;
 const RightSide = styled.a`
@@ -56,38 +59,38 @@ const RightSide = styled.a`
 `;
 const Menu = styled.a`
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
 `;
 const Style02 = styled.a`
   // border: 1px solid red;
   display: flex;
-  height: 65px;
-  width: 401px;
+  height: 100px;
+  width: 560px;
 `;
 const Button1 = styled.button`
-  border: 2px solid #C19A6B;
+  border: 1px solid #a64f03;
   height: 100%;
   width: 50%;
-  margin=0;
-  padding=0;
-  background-color: #8B4513;
+  margin: 0;
+  padding: 0;
+  background-color: #b44b1e;
   color: white;
   padding: 10px 54px;
   cursor: pointer;
-  font-size: 21px;
+  font-size: 35px;
   font-weight: bold;
 `;
 const Button2 = styled.button`
-  border: 2px solid #C19A6B;
+  border: 1px solid #a64f03;
   height: 100%;
   width: 50%;
-  margin=0;
-  padding=0;
-  background-color: #8B4513;
+  margin: 0;
+  padding: 0;
+  background-color: #b44b1e;
   color: white;
   padding: 10px 54px;
   cursor: pointer;
-  font-size: 21px;
+  font-size: 35px;
   font-weight: bold;
 `;
 

@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 /* styled-components */
 const Wrapper = styled.div`
-  width: 1500px;
-  height: 60px;
+  width: 1920px;
+  height: 160px;
   margin: 0;
   padding: 0;
-  background: #8b4513;
+  background: #f47e28;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 const Title = styled.h1`
   color: white;
   text-align: center;
-  font-size: 40px;
+  font-size: 90px;
   font-weight: bold;
 `;
 
@@ -33,10 +33,10 @@ function Header() {
       <img
         src="/src/images/Home.svg"
         style={{
-          width: "50px",
+          width: "75px",
           position: "absolute",
-          top: "43px",
-          right: "500px",
+          top: "90px",
+          right: "calc(100% - 1920px)",
           cursor: "pointer",
         }}
         onClick={toHome}
