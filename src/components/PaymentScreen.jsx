@@ -4,7 +4,7 @@ import OrderHistory from "/src/components/OrderHistory";
 import PaymentSuccess from "/src/components/PaymentSuccess";
 import KioskCountdownTimer from "/src/components/KioskCountdownTimer";
 import styled from "styled-components";
-// import { TailSpin } from "react-loader-spinner";
+import { TailSpin } from "react-loader-spinner";
 
 const ModalOverlay = styled.div`
   position: fixed;
@@ -13,27 +13,22 @@ const ModalOverlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-
 const ModalContent = styled.div`
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
   width: 500px;
   height: 600px;
   overflow-y: auto;
 `;
-
 const ButtonClose = styled.button`
   background-color: #c19a6b;
   margin-left: 400px;
-
   font-size: 20px;
   font-weight: bold;
 `;
@@ -70,6 +65,23 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
       setIsProcessing(false);
       setIsComplete(true);
     }, 2000);
+  };
+
+  const handleClose = () => {
+    // 일반적인 닫기 버튼 기능 (예: 모달 닫기)
+    onClose();
+  };
+  const handleCompleteClose = () => {
+    // orderId 상태를 안전하게 업데이트
+    setOrderId((prevOrderId) => {
+      const updatedOrderId = prevOrderId + 1;
+      console.log("Updated OrderId:", updatedOrderId); // 디버깅용 로그
+      return updatedOrderId;
+    });
+    // 모달 닫기를 상태 업데이트 이후에 실행
+    setTimeout(() => {
+      onClose();
+    }, 50);
   };
 
   const handleCountdownEnd = () => {
@@ -240,6 +252,12 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
           ) : (
             // 주문내역 출력
             <PaymentSuccess orderDetails={orders[0]} />
+          )}
+          {isComplete && (
+            <ButtonClose onClick={handleCompleteClose}>닫기+1</ButtonClose>
+          )}
+          {!isComplete && (
+            <ButtonClose onClick={handleClose}>그냥닫기</ButtonClose>
           )}
         </div>
       </ModalContent>
