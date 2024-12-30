@@ -77,8 +77,9 @@ const Button1 = styled.button`
   color: white;
   padding: 10px 54px;
   cursor: pointer;
-  font-size: 35px;
+  font-size: 40px;
   font-weight: bold;
+  font-family: "Varela Round", "Jua", serif;
 `;
 const Button2 = styled.button`
   border: 1px solid #a64f03;
@@ -90,8 +91,9 @@ const Button2 = styled.button`
   color: white;
   padding: 10px 54px;
   cursor: pointer;
-  font-size: 35px;
+  font-size: 40px;
   font-weight: bold;
+  font-family: "Varela Round", "Jua", serif;
 `;
 
 /* Cart-components */

@@ -35,8 +35,8 @@ function Header() {
         style={{
           width: "75px",
           position: "absolute",
-          top: "90px",
-          right: "calc(100% - 1920px)",
+          top: "40px",
+          right: "calc(100% - 1350px)",
           cursor: "pointer",
         }}
         onClick={toHome}

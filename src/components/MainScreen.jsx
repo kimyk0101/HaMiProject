@@ -95,7 +95,7 @@ function MainScreen() {
           borderRadius: "5px",
           cursor: "pointer",
           zIndex: 1,
-          fontSize: "16px",
+          fontSize: "25px",
         }}
         onClick={(e) => {
           e.stopPropagation(); //  버튼 클릭 시 부모의 터치 이벤트 방지
@@ -120,6 +120,7 @@ function MainScreen() {
           display: "flex",
           flexDirection: "column",
           gap: "10px",
+          fontSize: "25px",
         }}
       >
         <span style={{ fontWeight: "bold", marginBottom: "5px" }}>
@@ -150,12 +151,13 @@ function MainScreen() {
       <div
         style={{
           position: "absolute",
+          width: "1100px",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
           color: "#fff",
           textAlign: "center",
-          fontSize: "2rem",
+          fontSize: "70px",
           fontWeight: "bold",
           backgroundColor: "rgba(0, 0, 0, 0.5)",
           padding: "20px",

@@ -2,17 +2,15 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Varela Round", "Jua", serif;
+  font-family: "Jua", "Kosugi Maru", serif;
 }
-
-.varela-round-regular {
-  font-family: "Varela Round", serif;
+.jua-regular {
+  font-family: "Jua", serif;
   font-weight: 400;
   font-style: normal;
 }
-
-.jua-regular {
-  font-family: "Jua", serif;
+.kosugi-maru-regular {
+  font-family: "Kosugi Maru", serif;
   font-weight: 400;
   font-style: normal;
 }
