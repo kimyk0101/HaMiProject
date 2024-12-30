@@ -1,13 +1,17 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { QRCodeCanvas } from "qrcode.react";
+
 function MainScreen() {
   const navigate = useNavigate();
   // 화면 터치 시 다음 화면으로 이동
   const handleTouch = () => {
     navigate("/menu"); // 메뉴 화면으로 이동
   };
+
   const videoRef = useRef(null); // video 태그 참조
   const [isPlaying, setIsPlaying] = useState(true); // 재생 상태 관리
+
   // 동영상 재생 /정지 토글
   const togglePlayPause = () => {
     if (videoRef.current.paused) {
@@ -24,6 +28,7 @@ function MainScreen() {
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
   };
+
   // 다국어 데이터
   const languageData = {
     // 한국어
@@ -77,6 +82,7 @@ function MainScreen() {
       >
         <source src="/src/video/video-sufer.mp4.mp4" type="video/mp4" />
       </video>
+
       {/* 재생/정지 버튼 */}
       <div
         style={{
@@ -159,7 +165,40 @@ function MainScreen() {
         {" "}
         {languageData[selectedLanguage].message}
       </div>
+      {/* QR 코드 */}
+      <div
+      style={{
+        position: "absolute",
+        bottom: "20px",
+        left: "20px",
+        backgroundColor: "rgba(255, 255, 255, 0.8)",
+        padding: "10px",
+        borderRadius: "5px",
+      }}
+      > 
+      <div style= {{position: "relative", width: "150px", height: "150px"}}>
+      <QRCodeCanvas
+        value="http://example.com" // QR 코드로 인코딩할 URL
+        size={150}
+        bgColor="#ffffff"
+        fgColor="#000000"
+        level="Q" 
+        />
+    <img
+    src="/image.png"  // 삽입할 이미지의 경로
+    alt="QR LOGO"
+    style={{
+      position: "absolute",
+      top: "50%",
+      left:"50%",
+      transform: "translate(-50%, -50%)",
+      width: "50px",
+      height: "50px",
+    }} />
+    </div>
+    </div>
     </div>
   );
 }
+
 export default MainScreen;
