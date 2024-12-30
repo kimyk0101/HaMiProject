@@ -5,6 +5,7 @@ import PaymentSuccess from "/src/components/PaymentSuccess";
 import KioskCountdownTimer from "/src/components/KioskCountdownTimer";
 import styled from "styled-components";
 import { TailSpin } from "react-loader-spinner";
+import { QRCodeCanvas } from "qrcode.react";
 
 const ModalOverlay = styled.div`
   position: fixed;
@@ -158,6 +159,13 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
     marginBottom: "10px",
   };
 
+  const qrCodeValue = JSON.stringify({
+    orderId,
+    totalAmount,
+    totalPrice,
+    items,
+  });
+
   return (
     <ModalOverlay>
       <ModalContent>
@@ -214,6 +222,16 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
                         style={imageStyle}
                       />
                       <span>현금</span>
+                    </button>
+                    <button
+                    style={buttonStyle("qr")}
+                    onClick={() => handleMethodSelect("qr")}>
+                      <QRCodeCanvas
+                      value={qrCodeValue}
+                      size={80}
+                      bgColor="ffffff"
+                      level="Q" />
+                      <span>QR 코드</span>
                     </button>
                   </div>
                   {paymentMethod && (
