@@ -24,7 +24,7 @@ function OrderItem({ order }) {
       </p>
       <h3>주문 번호 : {order.id}</h3>
 
-      <p>주문 날짜 : {order.date}</p>
+      <p>주문 날짜 : {order.date2}</p>
       <h4>구매 목록</h4>
       <ul>
         {order.items.map((item) => (

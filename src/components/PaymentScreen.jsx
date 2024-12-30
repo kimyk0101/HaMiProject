@@ -58,7 +58,6 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
   const [isProcessing, setIsProcessing] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [showCountdown, setShowCountdown] = useState(false);
-  const [orderId, setOrderId] = useState(1000); // 초기값 설정
   // 타이머 초기화를 위한 usestate
   const [timerKey, setTimerKey] = useState(0);
 
@@ -77,10 +76,20 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
     }, 2000);
   };
 
+  const [orderId, setOrderId] = useState(() => {
+    const storedValue = sessionStorage.getItem("paymentCount");
+    return storedValue ? parseInt(storedValue) : 1000;
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem("paymentCount", orderId);
+  }, [orderId]);
+
   const handleClose = () => {
     // 일반적인 닫기 버튼 기능 (예: 모달 닫기)
     onClose();
   };
+
   const handleCompleteClose = () => {
     // orderId 상태를 안전하게 업데이트
     setOrderId((prevOrderId) => {
@@ -139,9 +148,6 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
       setShowCountdown(true);
     }
   }, [paymentMethod]);
-  useEffect(() => {
-    console.log("orderId:", orderId); // orderId가 변경될 때마다 콘솔에 출력
-  }, [orderId]);
 
   useEffect(() => {
     if (isComplete) {
@@ -293,11 +299,9 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
           )}
 
           {isComplete && (
-            <ButtonClose onClick={handleCompleteClose}>닫기+1</ButtonClose>
+            <ButtonClose onClick={handleCompleteClose}>닫기</ButtonClose>
           )}
-          {!isComplete && (
-            <ButtonClose onClick={handleClose}>그냥닫기</ButtonClose>
-          )}
+          {!isComplete && <ButtonClose onClick={handleClose}>닫기</ButtonClose>}
         </div>
       </ModalContent>
     </ModalOverlay>
