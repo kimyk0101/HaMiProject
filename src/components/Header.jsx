@@ -19,6 +19,18 @@ const Title = styled.h1`
   font-weight: bold;
 `;
 
+const HomeButton = styled.img`
+  width: 75px;
+  position: absolute;
+  top: 40px;
+  right: calc(100% - 1350px);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.5); /* 이미지 크기 50% 확대 */
+  }
+`;
+
 /* Header-components */
 function Header() {
   const navigate = useNavigate();
@@ -30,17 +42,8 @@ function Header() {
   return (
     <Wrapper>
       <Title>HA.MI 돈카츠</Title>
-      <img
-        src="/src/images/Home.svg"
-        style={{
-          width: "75px",
-          position: "absolute",
-          top: "40px",
-          right: "calc(100% - 1350px)",
-          cursor: "pointer",
-        }}
-        onClick={toHome}
-      />
+
+      <HomeButton src="/src/images/Home.svg" onClick={toHome} />
     </Wrapper>
   );
 }

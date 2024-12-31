@@ -48,6 +48,9 @@ const ButtonAmountControl = styled.button`
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
+  &:active {
+    border: 2px solid #0021f3;
+  }
 `;
 const RightSide = styled.a`
   // border: 1px solid gray;
@@ -68,7 +71,7 @@ const Style02 = styled.a`
   width: 560px;
 `;
 const Button1 = styled.button`
-  border: 1px solid #a64f03;
+  border: 1px solid #4c4b4e;
   height: 100%;
   width: 50%;
   margin: 0;
@@ -80,9 +83,12 @@ const Button1 = styled.button`
   font-size: 40px;
   font-weight: bold;
   font-family: "Varela Round", "Jua", serif;
+  &:hover {
+    border: 6px solid #0021f3;
+  }
 `;
 const Button2 = styled.button`
-  border: 1px solid #a64f03;
+  border: 1px solid #4c4b4e;
   height: 100%;
   width: 50%;
   margin: 0;
@@ -94,6 +100,9 @@ const Button2 = styled.button`
   font-size: 40px;
   font-weight: bold;
   font-family: "Varela Round", "Jua", serif;
+  &:hover {
+    border: 6px solid #0021f3;
+  }
 `;
 
 /* Cart-components */
