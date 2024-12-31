@@ -26,14 +26,51 @@ const ModalContent = styled.div`
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 500px;
-  height: 600px;
+  height: 800px;
   overflow-y: auto;
+  font-size: 20px;
 `;
 const ButtonClose = styled.button`
-  background-color: #c19a6b;
+  background-color: #f47e28;
   margin-left: 400px;
+  margin-top: 60px;
   font-size: 20px;
   font-weight: bold;
+  border-radius: 10px;
+
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    border: 4px solid #0021f3;
+  }
+`;
+
+const PaymentMethods = styled.div`
+  background-color: #f47e28;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  padding: 40px;
+  overflow-y: auto;
+
+  font-size: 30px;
+  text-align: center;
+`;
+
+const ButtonPay = styled.div`
+  margin-top: 207px;
+  background-color: yellow;
+  border-radius: 20px;
+  &:hover {
+    border: 4px solid #0021f3;
+  }
+`;
+
+const Pay = styled.div`
+  color: #f47e28;
 `;
 
 const loadingSpinnerStyles = {
@@ -152,7 +189,15 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
   useEffect(() => {
     if (isComplete) {
       const timer = setTimeout(() => {
-        // onClose(); // 홈 화면으로 이동
+        // orderId 상태를 안전하게 업데이트
+        setOrderId((prevOrderId) => {
+          const updatedOrderId = prevOrderId + 1;
+          console.log("Updated OrderId:", updatedOrderId); // 디버깅용 로그
+          sessionStorage.setItem("paymentCount", updatedOrderId);
+          return updatedOrderId;
+        });
+
+        // 홈 화면으로 이동
         toHome();
       }, 11000); // 11초 후 홈 화면으로 이동(원형 타이머가 10초에 끝나므로 '첫 화면으로 돌아갑니다' 메시지를 보여주기 위해 11초로 설정)
 
@@ -195,7 +240,7 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
         <div className="payment-screen">
           {!isComplete ? (
             <>
-              <div>
+              <Pay>
                 <h2>결제 화면</h2>
                 {showCountdown && (
                   <KioskCountdownTimer
@@ -210,79 +255,87 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
                     />
                   </KioskCountdownTimer>
                 )}
-              </div>
+              </Pay>
               <div className="order-summary">
                 <OrderHistory orders={orders} />
               </div>
-              <div className="payment-methods">
-                <h3>결제 수단 선택</h3>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
-                  }}
-                >
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <button
-                      style={buttonStyle("card")}
-                      onClick={() => handleMethodSelect("card")}
-                    >
-                      <img
-                        src="/src/images/creditCard.png"
-                        alt="카드"
-                        style={imageStyle}
-                      />
-                      <span>카드</span>
-                    </button>
-                    <button
-                      style={buttonStyle("cash")}
-                      onClick={() => handleMethodSelect("cash")}
-                    >
-                      <img
-                        src="/src/images/money.png"
-                        alt="현금"
-                        style={imageStyle}
-                      />
-                      <span>현금</span>
-                    </button>
-                    <button
-                      style={buttonStyle("qr")}
-                      onClick={() => handleMethodSelect("qr")}
-                    >
-                      <QRCodeCanvas
-                        value={qrCodeValue}
-                        size={80}
-                        bgColor="ffffff"
-                        level="Q"
-                      />
-                      <span>QR 코드</span>
-                    </button>
-                  </div>
-                  {paymentMethod && (
-                    <div
-                      style={{
-                        marginLeft: "20px",
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                    >
+              <PaymentMethods>
+                <div className="payment-methods">
+                  <br />
+                  <h2>결제 수단 선택</h2>
+                  <br />
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <div style={{ display: "flex", flexDirection: "column" }}>
                       <button
-                        onClick={handlePayment}
-                        disabled={isProcessing}
-                        style={buttonStyle("payment")}
+                        style={buttonStyle("card")}
+                        onClick={() => handleMethodSelect("card")}
                       >
                         <img
-                          src="/src/images/payments.png"
-                          alt="결제"
+                          src="/src/images/creditCard.png"
+                          alt="카드"
                           style={imageStyle}
                         />
-                        <span>결제하기</span>
+                        <span>카드</span>
+                      </button>
+                      <br />
+                      <button
+                        style={buttonStyle("cash")}
+                        onClick={() => handleMethodSelect("cash")}
+                      >
+                        <img
+                          src="/src/images/money.png"
+                          alt="현금"
+                          style={imageStyle}
+                        />
+                        <span>현금</span>
+                      </button>
+                      <br />
+                      <button
+                        style={buttonStyle("qr")}
+                        onClick={() => handleMethodSelect("qr")}
+                      >
+                        <QRCodeCanvas
+                          value={qrCodeValue}
+                          size={80}
+                          bgColor="ffffff"
+                          level="Q"
+                        />
+                        <span>QR 코드</span>
                       </button>
                     </div>
-                  )}
+                    {paymentMethod && (
+                      <div
+                        style={{
+                          marginLeft: "20px",
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <ButtonPay>
+                          <button
+                            onClick={handlePayment}
+                            disabled={isProcessing}
+                            style={buttonStyle("payment")}
+                          >
+                            <img
+                              src="/src/images/payments.png"
+                              alt="결제"
+                              style={imageStyle}
+                            />
+                            <span>결제하기</span>
+                          </button>
+                        </ButtonPay>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </PaymentMethods>
               {isProcessing && (
                 <div style={loadingSpinnerStyles.loadingSpinner}>
                   <TailSpin color="#00BFFF" height={80} width={80} />

@@ -31,6 +31,9 @@ const MenuBox = styled.span`
   align-items: center;
   box-sizing: border-box; /* 요소의 너비와 높이에 설정한 값이 콘텐츠 영역, 패딩, 테두리를 모두 포함하는 값으로 인식 */
   cursor: pointer;
+  &:hover {
+    border: 8px solid #0021f3;
+  }
 `;
 const Img = styled.img`
   width: 100%;
@@ -76,7 +79,7 @@ function MenuList({
         <MenuBox key={item.id} onClick={() => toCart(item.id)}>
           <Img src={`/src/images/${item.id}.jpeg`} alt={item.name}></Img>
           <ItemInfo>{item.name}</ItemInfo>
-          <ItemInfo>- {item.price}원</ItemInfo>
+          <ItemInfo>{item.price}원</ItemInfo>
         </MenuBox>
       ))}
     </Wrap>

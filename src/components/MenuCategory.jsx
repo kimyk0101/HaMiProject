@@ -17,7 +17,7 @@ const CategoryBox = styled.span`
   height: 100%;
   color: white;
   background-color: #b44b1e;
-  // border: 1px solid #f47e28;
+  border: 1px dashed #4c4b4e;
   // margin: 0 2px;
   border-radius: 10px;
   font-size: 50px;
@@ -26,6 +26,9 @@ const CategoryBox = styled.span`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  &:hover {
+    border: 6px solid #0021f3;
+  }
 `;
 
 /* MenuCategory-components */
