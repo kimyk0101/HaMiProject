@@ -90,7 +90,13 @@ const loadingSpinnerStyles = {
   },
 };
 
-function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
+function PaymentScreen({
+  onClose,
+  items,
+  totalAmount,
+  totalPrice,
+  makeAllZero,
+}) {
   const [paymentMethod, setPaymentMethod] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
@@ -134,9 +140,13 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
       console.log("Updated OrderId:", updatedOrderId); // 디버깅용 로그
       return updatedOrderId;
     });
+    // 장바구니 비우기
+    makeAllZero();
     // 모달 닫기를 상태 업데이트 이후에 실행
     setTimeout(() => {
       onClose();
+      // 홈으로 이동
+      toHome();
     }, 50);
   };
 
@@ -189,14 +199,8 @@ function PaymentScreen({ onClose, items, totalAmount, totalPrice }) {
   useEffect(() => {
     if (isComplete) {
       const timer = setTimeout(() => {
-        // orderId 상태를 안전하게 업데이트
-        setOrderId((prevOrderId) => {
-          const updatedOrderId = prevOrderId + 1;
-          console.log("Updated OrderId:", updatedOrderId); // 디버깅용 로그
-          sessionStorage.setItem("paymentCount", updatedOrderId);
-          return updatedOrderId;
-        });
-
+        //  장바구니 비우기
+        makeAllZero();
         // 홈 화면으로 이동
         toHome();
       }, 11000); // 11초 후 홈 화면으로 이동(원형 타이머가 10초에 끝나므로 '첫 화면으로 돌아갑니다' 메시지를 보여주기 위해 11초로 설정)
@@ -366,6 +370,7 @@ PaymentScreen.propTypes = {
   totalAmount: PropTypes.number,
   totalPrice: PropTypes.number,
   onClose: PropTypes.func,
+  makeAllZero: PropTypes.func.isRequired,
 };
 
 export default PaymentScreen;

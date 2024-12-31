@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 // import { useMemo } from "react";
 
-const Order = styled.p`
+const Order = styled.section`
   border-bottom: 1px solid #ccc;
   padding-bottom: 20px;
 `;
