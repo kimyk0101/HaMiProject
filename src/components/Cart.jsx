@@ -193,6 +193,7 @@ function Cart({
           totalAmount={totalAmount}
           totalPrice={totalPrice}
           items={items}
+          makeAllZero={makeAllZero}
         />
       ) : null}
     </Wrapper>

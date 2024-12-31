@@ -1,10 +1,9 @@
-// eslint-disable react/prop-types
-// import { useMemo } from "react";
+// eslint-disable react/prop-types;
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const PaymentComplete = styled.p`
+const PaymentComplete = styled.section`
   color: #f47e28;
 `;
 const OrderSummary = styled.ul`

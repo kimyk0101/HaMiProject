@@ -80,7 +80,7 @@ function MainScreen() {
           zIndex: -1,
         }}
       >
-        <source src="/src/video/video-sufer.mp4.mp4" type="video/mp4" />
+        <source src="/src/video/HA.MI.mp4" type="video/mp4" />
       </video>
 
       {/* 재생/정지 버튼 */}
