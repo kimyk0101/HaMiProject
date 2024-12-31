@@ -45,6 +45,12 @@ const ButtonClose = styled.button`
   }
 `;
 
+// QR코드 DIV 추가
+const QRWrapper = styled.div`
+  margin-top: 20px;
+  text-align: center;
+`;
+
 const PaymentMethods = styled.div`
   background-color: #f47e28;
 
@@ -100,6 +106,7 @@ function PaymentScreen({
   const [paymentMethod, setPaymentMethod] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [showQRCode, setShowQRCode] = useState(false);  // qr코드 표시 상태
   const [showCountdown, setShowCountdown] = useState(false);
   // 타이머 초기화를 위한 usestate
   const [timerKey, setTimerKey] = useState(0);
@@ -111,13 +118,37 @@ function PaymentScreen({
     navigate("/");
   };
 
-  const handlePayment = () => {
+  // // QR코드 추가 하기 전 기존 페이먼트
+  // const handlePayment = () => {
+  //   setIsProcessing(true);
+  //   setTimeout(() => {
+  //     setIsProcessing(false);
+  //     setIsComplete(true);
+  //   }, 2000);
+  // };
+
+// QR 코드 추가 후 PAYMENT 
+const handlePayment = () => {
+  if (paymentMethod === "qr") {
+    setShowQRCode(true);
+  } else {
     setIsProcessing(true);
     setTimeout(() => {
       setIsProcessing(false);
       setIsComplete(true);
     }, 2000);
-  };
+  }
+};
+
+// QR코드 추가 후 QR코드 페이먼트
+const handleQRCodePayment = () => {
+  setIsProcessing(true);
+  setTimeout(() => {
+    setIsProcessing(false);
+    setIsComplete(true);
+    setShowQRCode(false);
+  }, 3000);
+};
 
   const [orderId, setOrderId] = useState(() => {
     const storedValue = sessionStorage.getItem("paymentCount");
@@ -156,10 +187,22 @@ function PaymentScreen({
     onClose(); // 메뉴 화면으로 이동
   };
 
+  // // QR코드 추가 전 핸들 메서드
+  // const handleMethodSelect = (method) => {
+  //   setPaymentMethod(method);
+  //   setTimerKey((prevKey) => prevKey + 1);
+  //   setShowCountdown(true);
+  // };
+
+  // QR코드 핸들 메서드 추가
   const handleMethodSelect = (method) => {
     setPaymentMethod(method);
-    setTimerKey((prevKey) => prevKey + 1);
-    setShowCountdown(true);
+    if (method === "qr") {
+      setShowQRCode(true);
+    } else {
+      setTimerKey((prevKey) => prevKey + 1);
+      setShowCountdown(true);
+    }
   };
 
   const orderDate = new Date();
@@ -231,13 +274,9 @@ function PaymentScreen({
     marginBottom: "10px",
   };
 
-  const qrCodeValue = JSON.stringify({
-    orderId,
-    totalAmount,
-    totalPrice,
-    items,
-  });
-
+   // QR코드 결제 URL 추가
+   const qrCodeValue = `http://localhost:5175/menu'?orderId=${orderId}&amount=${totalPrice}`; // 결제 URL
+   
   return (
     <ModalOverlay>
       <ModalContent>
@@ -300,20 +339,45 @@ function PaymentScreen({
                         <span>현금</span>
                       </button>
                       <br />
+                      {/* QR코드 버튼 추가 */}
                       <button
                         style={buttonStyle("qr")}
                         onClick={() => handleMethodSelect("qr")}
                       >
-                        <QRCodeCanvas
-                          value={qrCodeValue}
-                          size={80}
-                          bgColor="ffffff"
-                          level="Q"
-                        />
+                        <img
+                      src="/src/images/image.png"
+                      alt="QR 코드"
+                      style={imageStyle}
+                    />
                         <span>QR 코드</span>
                       </button>
                     </div>
-                    {paymentMethod && (
+                      {/* QR코드 추가 후 페이먼트 메서드  */}
+                      {paymentMethod && paymentMethod !== "qr" && (
+                    <div
+                    style={{
+                      marginLeft: "20px",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <button
+                      onClick={handlePayment}
+                      disabled={isProcessing}
+                      style={buttonStyle("payment")}
+                    >
+                      <img
+                        src="/src/images/payments.png"
+                        alt="결제"
+                        style={imageStyle}
+                      />
+                      <span>결제하기</span>
+                    </button>
+                  </div>
+                )}
+                
+                  {/* QR코드 페이먼드트 메서드 추가하기 전 결제 메서드 */}
+                  {/* {paymentMethod && (
                       <div
                         style={{
                           marginLeft: "20px",
@@ -336,9 +400,19 @@ function PaymentScreen({
                           </button>
                         </ButtonPay>
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </div>
+                  {/* QR코드 스캔 및 결제 추가 */}
+                   {showQRCode && (
+                      <QRWrapper>
+                      <QRCodeCanvas value={qrCodeValue} size={200} />
+                      <p>QR 코드를 스캔하여 결제를 진행하세요.</p>
+                      <button onClick={handleQRCodePayment}>
+                        결제 완료
+                      </button>
+                      </QRWrapper>
+                  )}
               </PaymentMethods>
               {isProcessing && (
                 <div style={loadingSpinnerStyles.loadingSpinner}>
