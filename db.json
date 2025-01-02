@@ -7,13 +7,13 @@
 ],
 "setList": [
   { "id": 1, "name": "어린이 세트", "price": 9000, "isCart": 0},
-  { "id": 2, "name": "옛날 돈카츠 세트", "price": 13000, "isCart": 0},
-  { "id": 3, "name": "왕 돈카츠 세트", "price": 13000, "isCart": 0},
-  { "id": 4, "name": "치즈 돈카츠 세트", "price": 13000, "isCart": 0},
-  { "id": 5, "name": "등심카츠 세트", "price": 13000, "isCart": 0},
-  { "id": 6, "name": "안심카츠 세트", "price": 13000, "isCart": 0},
-  { "id": 7, "name": "생선카츠 세트", "price": 13000, "isCart": 0},
-  { "id": 8, "name": "로제카츠 세트", "price": 13000, "isCart": 0}
+  { "id": 2, "name": "옛날 돈카츠 세트", "price": 16000, "isCart": 0},
+  { "id": 3, "name": "왕 돈카츠 세트", "price": 20000, "isCart": 0},
+  { "id": 4, "name": "치즈 돈카츠 세트", "price": 17000, "isCart": 0},
+  { "id": 5, "name": "등심카츠 세트", "price": 16000, "isCart": 0},
+  { "id": 6, "name": "안심카츠 세트", "price": 17000, "isCart": 0},
+  { "id": 7, "name": "생선카츠 세트", "price": 16000, "isCart": 0},
+  { "id": 8, "name": "로제카츠 세트", "price": 18000, "isCart": 0}
 ],
 "cutletList" : [
   { "id": 101, "name": "옛날 돈카츠", "price": 11000, "isCart": 0},
@@ -57,13 +57,13 @@
 ],
 "en-setList": [
   { "id": 1, "name": "Children's Set", "price": 9000, "isCart": 0},
-  { "id": 2, "name": "Nostalgic Pork Cutlet Set", "price": 13000, "isCart": 0},
-  { "id": 3, "name": "Jumbo Pork Cutlet Set", "price": 13000, "isCart": 0},
-  { "id": 4, "name": "Cheese Pork Cutlet Set", "price": 13000, "isCart": 0},
-  { "id": 5, "name": "Sirloin Pork Cutlet Set", "price": 13000, "isCart": 0},
-  { "id": 6, "name": "Fillet Pork Cutlet Set", "price": 13000, "isCart": 0},
-  { "id": 7, "name": "Fish Cutlet Set", "price": 13000, "isCart": 0},
-  { "id": 8, "name": "Rosé Pork Cutlet Set", "price": 13000, "isCart": 0}
+  { "id": 2, "name": "Nostalgic Pork Cutlet Set", "price": 16000, "isCart": 0},
+  { "id": 3, "name": "Jumbo Pork Cutlet Set", "price": 20000, "isCart": 0},
+  { "id": 4, "name": "Cheese Pork Cutlet Set", "price": 17000, "isCart": 0},
+  { "id": 5, "name": "Sirloin Pork Cutlet Set", "price": 16000, "isCart": 0},
+  { "id": 6, "name": "Fillet Pork Cutlet Set", "price": 17000, "isCart": 0},
+  { "id": 7, "name": "Fish Cutlet Set", "price": 16000, "isCart": 0},
+  { "id": 8, "name": "Rosé Pork Cutlet Set", "price": 18000, "isCart": 0}
 ],
 "en-cutletList" : [
   { "id": 101, "name": "Nostalgic Pork Cutlet", "price": 11000, "isCart": 0},
@@ -107,13 +107,13 @@
 ],
 "jp-setList": [
   { "id": 1, "name": "こどもセット", "price": 9000, "isCart": 0},
-  { "id": 2, "name": "昔ながらのとんかつセット", "price": 13000, "isCart": 0},
-  { "id": 3, "name": "王様とんかつセット", "price": 13000, "isCart": 0},
-  { "id": 4, "name": "チーズとんかつセット", "price": 13000, "isCart": 0},
-  { "id": 5, "name": "ロースカツセット", "price": 13000, "isCart": 0},
-  { "id": 6, "name": "ヒレカツセット", "price": 13000, "isCart": 0},
-  { "id": 7, "name": "魚カツセット ", "price": 13000, "isCart": 0},
-  { "id": 8, "name": "ロゼカツセット", "price": 13000, "isCart": 0}
+  { "id": 2, "name": "昔ながらのとんかつセット", "price": 16000, "isCart": 0},
+  { "id": 3, "name": "王様とんかつセット", "price": 20000, "isCart": 0},
+  { "id": 4, "name": "チーズとんかつセット", "price": 17000, "isCart": 0},
+  { "id": 5, "name": "ロースカツセット", "price": 16000, "isCart": 0},
+  { "id": 6, "name": "ヒレカツセット", "price": 17000, "isCart": 0},
+  { "id": 7, "name": "魚カツセット ", "price": 16000, "isCart": 0},
+  { "id": 8, "name": "ロゼカツセット", "price": 18000, "isCart": 0}
 ],
 "jp-cutletList" : [
   { "id": 101, "name": "昔ながらのとんかつ", "price": 11000, "isCart": 0},
