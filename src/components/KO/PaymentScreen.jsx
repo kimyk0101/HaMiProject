@@ -262,7 +262,6 @@ function PaymentScreen({
   };
 
   // QR코드 결제 URL 추가
-  const qrCodeValue = `http://localhost:5175/menu'?orderId=${orderId}&amount=${totalPrice}`; // 결제 URL
   return (
     <ModalOverlay>
       <ModalContent>
@@ -286,7 +285,10 @@ function PaymentScreen({
                 )}
                 {showQRCode && (
                   <QRWrapper>
-                    <QRCodeCanvas value={qrCodeValue} size={200} />
+                    <QRCodeCanvas
+                      value="https://resonant-cascaron-5a1b5b.netlify.app"
+                      size={200}
+                    />
                     <p>QR 코드를 스캔하여 결제를 진행하세요.</p>
                   </QRWrapper>
                 )}
