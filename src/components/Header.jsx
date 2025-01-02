@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 /* styled-components */
 const Wrapper = styled.div`
@@ -32,11 +33,13 @@ const HomeButton = styled.img`
 `;
 
 /* Header-components */
-function Header() {
+function Header({ allCartZero }) {
   const navigate = useNavigate();
 
   // 홈 화면으로
   const toHome = () => {
+    // 전달받은 함수를 호출
+    allCartZero();
     navigate("/");
   };
   return (
@@ -47,4 +50,8 @@ function Header() {
     </Wrapper>
   );
 }
+
+Header.propTypes = {
+  allCartZero: PropTypes.func.isRequired,
+};
 export default Header;
