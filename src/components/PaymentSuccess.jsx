@@ -59,14 +59,6 @@ const renderTime = ({ remainingTime }) => {
 };
 
 function PaymentSuccess({ orderDetails }) {
-  // const totalPrice = useMemo(() => {
-  //   if (!orderDetails || !orderDetails.items) return 0;
-  //   return orderDetails.items.reduce(
-  //     (sum, item) => sum + (item.price || 0) * (item.count || 0),
-  //     0
-  //   );
-  // }, [orderDetails]);
-
   if (!orderDetails) {
     return <div>주문 정보를 불러오는 중...</div>;
   }
@@ -83,7 +75,6 @@ function PaymentSuccess({ orderDetails }) {
         colorsTime={[7, 5, 2, 0]}
       >
         {renderTime}
-        {/* {({ remainingTime }) => remainingTime} */}
       </CountdownCircleTimer>
       <br />
       <div className="order-summary">

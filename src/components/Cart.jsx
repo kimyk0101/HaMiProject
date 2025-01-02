@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-
+import Swal from "sweetalert2";
 import PaymentScreen from "/src/components/PaymentScreen";
 
 /* styled-components */
@@ -155,7 +155,15 @@ function Cart({
 
   const [isPaymentScreenVisible, setIsPaymentScreenVisible] = useState(false);
   const handlePaymentButtonClick = () => {
-    setIsPaymentScreenVisible(true);
+    if (totalAmount === 0 || totalPrice === 0) {
+      Swal.fire({
+        icon: "info",
+        title: "장바구니가 비어있습니다.",
+        text: "상품을 추가해주세요.",
+      });
+    } else {
+      setIsPaymentScreenVisible(true);
+    }
   };
 
   return (
@@ -193,6 +201,7 @@ function Cart({
           totalAmount={totalAmount}
           totalPrice={totalPrice}
           items={items}
+          // PaymentScreen에 makeAllZero를 사용하기 위해 prop으로 전달
           makeAllZero={makeAllZero}
         />
       ) : null}
