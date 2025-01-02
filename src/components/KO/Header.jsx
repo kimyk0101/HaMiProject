@@ -26,7 +26,6 @@ const HomeButton = styled.img`
   top: 40px;
   right: calc(100% - 1350px);
   cursor: pointer;
-
   &:hover {
     transform: scale(1.5); /* 이미지 크기 50% 확대 */
   }
@@ -38,10 +37,10 @@ function Header({ allCartZero }) {
 
   // 홈 화면으로
   const toHome = () => {
-    // 전달받은 함수를 호출
     allCartZero();
     navigate("/");
   };
+
   return (
     <Wrapper>
       <Title>HA.MI 돈카츠</Title>

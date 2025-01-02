@@ -4,10 +4,6 @@ import { QRCodeCanvas } from "qrcode.react";
 
 function MainScreen() {
   const navigate = useNavigate();
-  // 화면 터치 시 다음 화면으로 이동
-  const handleTouch = () => {
-    navigate("/menu"); // 메뉴 화면으로 이동
-  };
 
   const videoRef = useRef(null); // video 태그 참조
   const [isPlaying, setIsPlaying] = useState(true); // 재생 상태 관리
@@ -22,8 +18,10 @@ function MainScreen() {
       setIsPlaying(false);
     }
   };
+
   //    언어 선택
   const [selectedLanguage, setSelectedLanguage] = useState("ko"); // 기본언어는 한국어 설정
+
   // 언어 선택 이벤트 처리
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);
@@ -49,13 +47,12 @@ function MainScreen() {
     jp: {
       message: "画面をタッチしてメニューに移動",
       play: "再生",
-      pause: "一時停止",
+      pause: "いちじていし",
       languages: "言語選択",
     },
   };
   return (
     <div
-      onClick={handleTouch}
       style={{
         position: "relative",
         width: "100%",
@@ -120,7 +117,7 @@ function MainScreen() {
           display: "flex",
           flexDirection: "column",
           gap: "10px",
-          fontSize: "25px",
+          fontSize: "30px",
         }}
       >
         <span style={{ fontWeight: "bold", marginBottom: "5px" }}>
@@ -149,15 +146,30 @@ function MainScreen() {
       </div>
       {/* 안내 텍스트 */}
       <div
+        onClick={() => {
+          switch (selectedLanguage) {
+            case "ko":
+              navigate("/menu");
+              break;
+            case "en":
+              navigate("/ENmenu");
+              break;
+            case "jp":
+              navigate("/JPmenu");
+              break;
+            default:
+              console.error("Invalid language");
+          }
+        }}
         style={{
           position: "absolute",
-          width: "1100px",
+          width: "1000px",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
           color: "#fff",
           textAlign: "center",
-          fontSize: "70px",
+          fontSize: "60px",
           fontWeight: "bold",
           backgroundColor: "rgba(0, 0, 0, 0.5)",
           padding: "20px",
