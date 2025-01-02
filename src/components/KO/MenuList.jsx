@@ -3,15 +3,12 @@ import styled from "styled-components";
 
 /* styled-components */
 const Wrap = styled.div`
-  // border: 1px solid yellow;
   width: 1360px;
   height: 810px;
   background-color: #f47e28;
   margin: 0;
   padding: 10px 0px 0px 0px;
   display: flex;
-  // justify-content: center;
-  // align-items: center;
   flex-wrap: wrap;
   overflow: auto;
 `;

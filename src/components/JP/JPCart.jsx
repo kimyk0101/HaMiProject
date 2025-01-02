@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Swal from "sweetalert2";
-import PaymentScreen from "/src/components/PaymentScreen";
+
+import PaymentScreen from "/src/components/JP/JPPaymentScreen";
 
 /* styled-components */
 const Wrapper = styled.div`
-  // border: 1px solid black;
   width: 560px;
   height: 740px;
   position: absolute;
@@ -15,20 +15,18 @@ const Wrapper = styled.div`
   background-color: white;
 `;
 const StyledH1 = styled.h2`
-  // border: 1px solid black;
   height: 100px;
   width: 100%;
   margin: 0;
   padding: 0;
   background-color: #4c4b4e;
   color: white;
-  font-size: 50px;
+  font-size: 34px;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 const StyledUl = styled.ul`
-  // border: 1px solid blue;
   padding: 10px 0 0 20px;
   margin: 0;
   height: 510px;
@@ -53,7 +51,6 @@ const ButtonAmountControl = styled.button`
   }
 `;
 const RightSide = styled.a`
-  // border: 1px solid gray;
   margin: 0;
   padding: 0;
   display: flex;
@@ -65,7 +62,6 @@ const Menu = styled.a`
   font-size: 30px;
 `;
 const Style02 = styled.a`
-  // border: 1px solid red;
   display: flex;
   height: 100px;
   width: 560px;
@@ -80,7 +76,7 @@ const Button1 = styled.button`
   color: white;
   padding: 10px 54px;
   cursor: pointer;
-  font-size: 40px;
+  font-size: 23px;
   font-weight: bold;
   font-family: "Varela Round", "Jua", serif;
   &:hover {
@@ -97,7 +93,7 @@ const Button2 = styled.button`
   color: white;
   padding: 10px 54px;
   cursor: pointer;
-  font-size: 40px;
+  font-size: 24px;
   font-weight: bold;
   font-family: "Varela Round", "Jua", serif;
   &:hover {
@@ -113,9 +109,6 @@ function Cart({
   isCartZero,
   allCartZero,
 }) {
-  {
-    /* 장바구니 총 금액 */
-  }
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
     const calculateTotalPrice = () => {
@@ -126,11 +119,8 @@ function Cart({
       setTotalPrice(totalP);
     };
     calculateTotalPrice();
-  }, [items]); // 마지막의 [items] = 의존성 배열, useEffect가 items 배열의 변화에만 반응하도록 설정하는 것
+  }, [items]);
 
-  {
-    /* 장바구니 총 주문수량 */
-  }
   const [totalAmount, setTotalAmount] = useState(0);
   useEffect(() => {
     const calculateTotalAmount = () => {
@@ -158,8 +148,8 @@ function Cart({
     if (totalAmount === 0 || totalPrice === 0) {
       Swal.fire({
         icon: "info",
-        title: "장바구니가 비어있습니다.",
-        text: "상품을 추가해주세요.",
+        title: "商品を追加してください。",
+        text: "カートは空です。",
       });
     } else {
       setIsPaymentScreenVisible(true);
@@ -168,7 +158,7 @@ function Cart({
 
   return (
     <Wrapper>
-      <StyledH1>장 바 구 니</StyledH1>
+      <StyledH1>カート</StyledH1>
       <StyledUl>
         {items.map((item) => (
           <li key={item.id}>
@@ -183,17 +173,17 @@ function Cart({
               </ButtonAmountControl>
               &nbsp;&nbsp;
               <ButtonAmountControl onClick={() => makeCartZero(item.id)}>
-                삭제
+                さくじょ
               </ButtonAmountControl>
             </RightSide>
           </li>
         ))}
       </StyledUl>
-      <StyledH1>주문수량 : {totalAmount}개</StyledH1>
-      <StyledH1>총 금액 : {totalPrice}원</StyledH1>
+      <StyledH1>ごうけいすうりょう : {totalAmount}</StyledH1>
+      <StyledH1>ごうけいきんがく : {totalPrice}ウォン</StyledH1>
       <Style02>
-        <Button1 onClick={() => makeAllZero()}>전체삭제</Button1>
-        <Button2 onClick={handlePaymentButtonClick}>결제</Button2>
+        <Button1 onClick={() => makeAllZero()}>すべてさくじょ</Button1>
+        <Button2 onClick={handlePaymentButtonClick}>けっさい</Button2>
       </Style02>
       {isPaymentScreenVisible ? (
         <PaymentScreen
@@ -201,7 +191,6 @@ function Cart({
           totalAmount={totalAmount}
           totalPrice={totalPrice}
           items={items}
-          // PaymentScreen에 makeAllZero를 사용하기 위해 prop으로 전달
           makeAllZero={makeAllZero}
         />
       ) : null}
