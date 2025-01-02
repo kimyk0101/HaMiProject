@@ -288,11 +288,7 @@ function App() {
             element={
               <>
                 {/* Header에 prop으로 '전체삭제' 함수를 사용하기 위해 전달 */}
-                <Header
-                  allCartZero={allCartZero}
-                  setData={setData}
-                  selectedCategory={selectedCategory}
-                />
+                <Header allCartZero={allCartZero} />
                 <MenuCategory
                   categoryData={categoryData}
                   setSelectedCategory={setSelectedCategory}
