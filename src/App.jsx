@@ -220,7 +220,7 @@ function App() {
 
   // EN isCart 전체 삭제
   const ENallCartZero = () => {
-    setENAllMenuLists(allMenuLists.map((item) => ({ ...item, isCart: 0 })));
+    setENAllMenuLists(ENallMenuLists.map((item) => ({ ...item, isCart: 0 })));
   };
 
   //  EN isCart
@@ -264,7 +264,7 @@ function App() {
 
   // JP isCart 전체 삭제
   const JPallCartZero = () => {
-    setJPAllMenuLists(allMenuLists.map((item) => ({ ...item, isCart: 0 })));
+    setJPAllMenuLists(JPallMenuLists.map((item) => ({ ...item, isCart: 0 })));
   };
 
   //  JP isCart

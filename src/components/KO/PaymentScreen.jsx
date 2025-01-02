@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
@@ -129,25 +130,6 @@ function PaymentScreen({
         setIsProcessing(false);
         setIsComplete(true);
       }, 2000);
-    }
-  };
-
-  // QR코드 추가 후 QR코드 페이먼트
-  const handleQRCodePayment = () => {
-    if (paymentMethod === "qr") {
-      setShowQRCode(true);
-      setIsProcessing(true);
-      setTimeout(() => {
-        setIsProcessing(false);
-        setIsComplete(true);
-      }, 3000);
-    } else {
-      setShowQRCode(false);
-      setIsProcessing(true);
-      setTimeout(() => {
-        setIsProcessing(false);
-        setIsComplete(true);
-      }, 3000);
     }
   };
 
